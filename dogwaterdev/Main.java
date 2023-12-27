@@ -17,17 +17,19 @@ public class Main {
         String e;
         e = scanner.next();
         String workingDir;
-        workingDir = "D:\\Projekte\\GitHub\\JLI-C\\test";
+        /*workingDir = "D:\\Projekte\\GitHub\\JLI-C\\test";*/
+        workingDir = "C:\\Users\\fabia\\IdeaProjects\\DogWaterDev\\JLI-C";
         String nextDir;
         while (true) {
             System.out.print("JLI-C -- " + workingDir + " >> ");
             e = scanner.next();
-            e = e.replace("JLI-C >> ", "");
+            e = e.replace("JLI-C -- "+ workingDir + ">> ", "");
             switch (e.toLowerCase()) {
                 case "help":
                     String temp = scanner.next();
                     System.out.println("JLI-C HELP");
                     System.out.println("Command List:\n-help: opens the help menu. You can use help __COMMAND__ to get info for a specific command\n-quit: closes the terminal\n-cd: sets path as working directory\n-md: creates new directory, taking input for its name\n-dd: deletes a directory, taking input for the specified directory\n-nf: creates an empty file, takes two inputs. 1:file name and 2: file type");
+                    break;
                 case "cd":
                     temp = scanner.next();
                     workingDir = Commands.navigateDirectory(workingDir, temp);
@@ -45,6 +47,14 @@ public class Main {
                     Commands.deleteDirectory(workingDir, temp);
                     break;
                 case "ld":
+                    temp = scanner.next();
+                    List<String> list = Commands.listDirectory(workingDir);
+                    System.out.println("listing directory:");
+                    for (int i = 0; i < list.size(); i++) {
+                        System.out.println(workingDir + " >> " + list.get(i));
+                    }
+                    break;
+
                 case "quit":
                     System.exit(69420);
             }

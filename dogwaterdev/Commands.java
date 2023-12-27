@@ -1,8 +1,8 @@
 package dogwaterdev;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.DirectoryNotEmptyException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Commands {
@@ -14,6 +14,7 @@ public class Commands {
         new File(path + "\\" + directoryName).delete();
     }
 
+    @org.jetbrains.annotations.NotNull
     public static String navigateDirectory(String workingDir, String path) {
         String finishedResult;
         String topDir;
@@ -25,10 +26,11 @@ public class Commands {
                 count++;
             }
         }
-            if (path.length() > 2 && Main.possibleStarters.contains(path.substring(0, 2))) {
+            if (path.length() >= 2 && Main.possibleStarters.contains(path.substring(0, 2))) {
                 workingDir = path;
                 finishedResult = workingDir;
-            } else if (count == 0) {
+            }
+            else if (count == 0) {
                 if (path.charAt(0) == '/') {
                     workingDir = workingDir + path;
                 }
@@ -46,12 +48,18 @@ public class Commands {
             } else if (count == 1) {
                 topDir = new File(workingDir).getParentFile().getAbsolutePath();
                 finishedResult = topDir + processedPath;
-
-
             }
             else {
                 throw new RuntimeException("An error occured trying to find the path. If you think this is a bug, nag author DogWaterDev on GitHub.");
             }
         return finishedResult.replace("/", "\\");
+    }
+
+    public static List<String> listDirectory(String workingDir) {
+        List<String> output = new ArrayList<String>();
+        for (int i = 0; i < new File(workingDir).listFiles().length; i++) {
+            output.add(new File(workingDir).listFiles()[i].getName());
+        }
+        return output;
     }
 }
