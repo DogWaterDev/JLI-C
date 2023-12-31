@@ -3,6 +3,8 @@ package dogwaterdev;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryNotEmptyException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Commands {
@@ -16,12 +18,11 @@ public class Commands {
 
     public static String navigateDirectory(String workingDir, String path) {
         String finishedResult;
-        String topDir;
-        Integer count = 0;
+        int count = 0;
         String processedPath;
         processedPath = path.replace(".", "");
-        for (Integer i = 0; i < path.length(); i++) {
-            if (Objects.equals(path.charAt(i), ".")) {
+        for (int i = 0; i < path.length(); i++) {
+            if (Objects.equals(path.charAt(i), '.')) {
                 count++;
             }
         }
@@ -36,22 +37,33 @@ public class Commands {
                     workingDir = workingDir + "/" + path;
                 }
                 finishedResult = workingDir;
-            }
-            else if (count > 1) {
-                topDir = new File(workingDir).getParentFile().getAbsolutePath();
-                for (int c = 0; c < count-1; c++) {
-                    topDir = new File(topDir).getParentFile().getAbsolutePath();
+            } else if (count > 0) {
+                System.out.println("asdasdasdasde");
+                File topDir = new File(workingDir);
+                for (int i = 0; i < count; i++) {
+                    topDir = topDir.getAbsoluteFile().getParentFile().getAbsoluteFile();
                 }
-                finishedResult = topDir + processedPath;
-            } else if (count == 1) {
-                topDir = new File(workingDir).getParentFile().getAbsolutePath();
-                finishedResult = topDir + processedPath;
 
-
+                finishedResult = topDir.getPath() + processedPath;
             }
             else {
                 throw new RuntimeException("An error occured trying to find the path. If you think this is a bug, nag author DogWaterDev on GitHub.");
             }
+
         return finishedResult.replace("/", "\\");
+    }
+
+    public static List<String> listDirectory(String workingDir) {
+        File file = new File(workingDir);
+        List<String> list = new ArrayList<String>();
+        if (file.listFiles() != null) {
+            for (int i = 0; i < file.listFiles().length; i++) {
+                list.add(file.listFiles()[i].getName());
+            }
+            return list;
+        }
+        else {
+            return null;
+        }
     }
 }

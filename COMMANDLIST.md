@@ -2,9 +2,12 @@
 ## Categories:
 * Directories
 * Files
-* Navigation
 * Miscellaneous
 
+## Miscellaneous
+* help - opens the help menu
+* quit - exits the program (closes window)
+* echo - repeats the given arguments
 ## Directories
 * cd - navigates to a directory
 * md - creates a directory

@@ -1,4 +1,4 @@
-package dogwaterdev;
+package dogwaterdev.exceptions;
 
 public class CommandNotFoundException extends Exception{
 

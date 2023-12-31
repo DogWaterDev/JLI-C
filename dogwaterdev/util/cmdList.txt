@@ -1,0 +1,10 @@
+help
+quit
+echo
+cd
+ld
+md
+dd
+mf
+lf
+df
