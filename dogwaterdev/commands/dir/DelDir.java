@@ -1,14 +1,15 @@
-package dogwaterdev.commands.misc;
+package dogwaterdev.commands.dir;
 
 import dogwaterdev.Command;
 import dogwaterdev.exceptions.UnkownArgumentsException;
 
+import java.io.File;
 import java.util.ArrayList;
 
-public class QuitCommand extends Command {
-
+public class DelDir extends Command {
     @Override
     public void run(ArrayList<String> params, String workingDir) throws UnkownArgumentsException {
-        System.exit(0);
+        String directoryName = params.get(0);
+        new File(workingDir + "\\" + directoryName).delete();
     }
 }

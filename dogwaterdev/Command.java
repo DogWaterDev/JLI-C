@@ -8,6 +8,6 @@ public abstract class Command {
     public String name;
     public String desc;
     public ArrayList<String> args;
-    public int maxArguments;
-    public abstract void run(ArrayList<String> params) throws UnkownArgumentsException;
+    public ArrayList<Integer> maxArguments = new ArrayList<>();
+    public abstract void run(ArrayList<String> params, String workingDir) throws UnkownArgumentsException;
 }

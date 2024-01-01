@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="diogonunes.JCDP" type="repository">
+    <properties maven-id="com.diogonunes:JCDP:4.0.2" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/JCDP-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jna-5.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jna-platform-5.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
