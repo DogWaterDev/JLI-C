@@ -13,9 +13,11 @@ cd
 ld
 md
 dd
-mf
 lf
+mf
 df
+rf
+cf
 """;
 
     /** This is a way to package the cmdList into the JAR file...
