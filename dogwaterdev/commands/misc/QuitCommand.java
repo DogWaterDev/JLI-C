@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class QuitCommand extends Command {
 
     @Override
-    public void run(ArrayList<String> params, String workingDir) throws UnkownArgumentsException {
+    public void run(ArrayList<String> params, String workingDir, String path) throws UnkownArgumentsException {
         System.exit(0);
     }
 }

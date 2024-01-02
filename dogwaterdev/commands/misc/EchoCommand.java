@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class EchoCommand extends Command {
     @Override
-    public void run(ArrayList<String> params, String workingDir) throws UnkownArgumentsException {
+    public void run(ArrayList<String> params, String workingDir, String path) throws UnkownArgumentsException {
         maxArguments = new ArrayList<Integer>();
         maxArguments.add(1);
         maxArguments.add(3);

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class HelpCommand extends Command {
 
     @Override
-    public void run(ArrayList<String> args, String workingDir) throws UnkownArgumentsException {
+    public void run(ArrayList<String> args, String workingDir, String path) throws UnkownArgumentsException {
         if (args.isEmpty()) {
             new fPrintln(ConsoleColors.CYAN_UNDERLINED, "JLI-C HELP");
             new fPrintln(ConsoleColors.CYAN_UNDERLINED, "Command List:");

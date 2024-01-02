@@ -2,7 +2,6 @@ package dogwaterdev;
 import dogwaterdev.parse.Parser;
 import dogwaterdev.util.ConsoleColors;
 import dogwaterdev.util.fPrint;
-import dogwaterdev.util.fPrintln;
 
 import java.util.ArrayList;
 import java.util.List;
